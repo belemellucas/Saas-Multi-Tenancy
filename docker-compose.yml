@@ -1,16 +1,26 @@
 version: '3.9'
 services:
+  nextapp:
+    container_name: nextapp
+    image: nextapp:1.0.0
+    build:
+      context: ./frontend
+      dockerfile: next.dockerfile
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:3000 
+    depends_on:
+      - nestapp
   nestapp:
     container_name: nestapp
     image: globalline/nestapp:1.0.0
     build: .
     ports:
-      - 3000:3000
+      - 8000:8000
     environment:
       - DB_TYPE=postgres
       - PG_HOST=db 
-      - PG_USER=postgres
-      - PG_PASSWORD=postgres
+      - PG_USER=globalline
+      - PG_PASSWORD=Global@123
       - PG_DB=globalline
       - PG_PORT=5432
     depends_on:
@@ -21,8 +31,8 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=globalline
+      - POSTGRES_PASSWORD=Global@123
       - POSTGRES_DB=globalline
     volumes:
       - pgdata:/var/lib/postgresql/data

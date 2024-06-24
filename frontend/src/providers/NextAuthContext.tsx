@@ -34,7 +34,7 @@ const AuthProvider: FC<React.PropsWithChildren<{}>> = ({ children }) => {
         const token = Cookies.get('authToken');
         //const token = localStorage.getItem('authToken');
         if (token) {
-          const response = await axios.get('http://localhost:3000/auth/check-auth', {
+          const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/auth/check-auth`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -54,7 +54,7 @@ const AuthProvider: FC<React.PropsWithChildren<{}>> = ({ children }) => {
 
   const signIn = async (email: string, password: string): Promise<boolean> => {
     try {
-      const response = await axios.post('http://localhost:3000/auth/login', { email, password });
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, { email, password });
       if (response.data.access_token) {
        // localStorage.setItem('authToken', response.data.access_token);
         Cookies.set('authToken', response.data.access_token, { expires: 1 }) 
