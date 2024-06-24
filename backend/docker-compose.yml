@@ -5,26 +5,12 @@ services:
     image: globalline/nestapp:1.0.0
     build: .
     ports:
-      - 3000:3000
+      - 8000:8000
     environment:
       - DB_TYPE=postgres
       - PG_HOST=db 
-      - PG_USER=postgres
-      - PG_PASSWORD=postgres
+      - PG_USER=globalline
+      - PG_PASSWORD=20Global10
       - PG_DB=globalline
       - PG_PORT=5432
-    depends_on:
-      - db
-  db:
-    container_name: db
-    image: postgres:12
-    ports:
-      - 5432:5432
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=globalline
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-volumes:
-  pgdata: {}
+  
