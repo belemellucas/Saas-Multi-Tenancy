@@ -57,3 +57,7 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/events
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsInJvbGVzIjpbIlVTRVIiXSwiY3JlYXRlZEF0IjoiMjAyNC0wNi0xM1QwMDozMToyNS41NzRaIiwidXBkYXRlZEF0IjoiMjAyNC0wNi0xM1QwMDozMToyNS41NzRaIiwiaWF0IjoxNzE4MjM5NzY1LCJleHAiOjE3MTgyNDk3NjV9.tzz502l4sLmguHQzZzKJzFqFCupJvFs4SjNnhATb5rA
+
+
+
+//DATABASE_URL="postgresql://globalline:20Global10@187.75.245.69:5432/globalline"
