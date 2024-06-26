@@ -1,18 +1,21 @@
 version: '3.9'
 services:
-  nextapp:
-    container_name: nextapp
-    image: nextapp:1.0.0
+  frontend:
+    container_name: frontend
+    image: frontend
     build:
       context: ./frontend
-      dockerfile: next.dockerfile
+      dockerfile: frontend.dockerfile
+    ports:
+      - 3000:3000
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:3000 
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    restart: always 
     depends_on:
-      - nestapp
-  nestapp:
-    container_name: nestapp
-    image: globalline/nestapp:1.0.0
+      - backend
+  backend:
+    container_name: backend
+    image: backend
     build: 
       context: ./backend
       dockerfile: backend.dockerfile
