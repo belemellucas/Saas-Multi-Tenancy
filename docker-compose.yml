@@ -7,9 +7,9 @@ services:
       context: ./frontend
       dockerfile: frontend.dockerfile
     ports:
-      - 8000:8000
+      - 3000:3000
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:3000
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
     restart: always 
     depends_on:
       - backend
@@ -20,7 +20,7 @@ services:
       context: ./backend
       dockerfile: backend.dockerfile
     ports:
-      - 3000:3000
+      - 8000:8000
     environment:
       - DB_TYPE=postgres
       - PG_HOST=db 
